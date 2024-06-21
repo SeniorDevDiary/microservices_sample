@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  auth:
+    build: ./auth
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./auth:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - my-network
+    # command: npm run start
+
+  todo:
+    build: ./todo
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./todo:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - my-network
+
+  exchange:
+    build: ./exchange
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./exchange:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - my-network
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./gateway:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - auth
+      - todo
+      - exchange
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
