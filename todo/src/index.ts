@@ -1,4 +1,5 @@
 import express from "express";
+import { receivedMessages } from "./AMQP";
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -6,7 +7,11 @@ const PORT = process.env.PORT || 3002;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Get all todos v22233");
+  res.send("Get all todos");
+});
+
+app.get("/receivedMessages", (req, res) => {
+  res.status(200).json({ receivedMessages });
 });
 
 app.post("/", (req, res) => {
@@ -14,5 +19,5 @@ app.post("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Auth Service is running on port ${PORT}`);
+  console.log(`Todo Service is running on port ${PORT}`);
 });

@@ -7,7 +7,15 @@ docker-compose up --build
 docker build -t auth .
 docker run -p 3001:3001 auth
 
-usefull https://www.youtube.com/watch?v=EQlEX8ugoNA&list=PLaLqLOj2bk9ZV2RhqXzABUP5QSg42uJEs&index=8
+## cloud amqp
+
+https://api.cloudamqp.com/
+
+## usefull links
+
+https://www.youtube.com/watch?v=EQlEX8ugoNA&list=PLaLqLOj2bk9ZV2RhqXzABUP5QSg42uJEs&index=8
+https://youtu.be/T-xCylkjSf8?si=zMYwFMWSHr3aK-iI&t=382
+https://www.youtube.com/watch?v=ZInB6xodwi4
 
 ## RabibtMQ
 
