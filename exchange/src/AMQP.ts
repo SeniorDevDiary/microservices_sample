@@ -4,9 +4,7 @@ const QUEUE = "EXCHANGE_HISTORY";
 
 export const sendMessage = async (message: string) => {
   try {
-    const connection = await amqp.connect(
-      "amqps://hltjahvj:kofy_YczcLCmQGRXMmzLK6f_Xjyzs5ZC@cow.rmq2.cloudamqp.com/hltjahvj"
-    );
+    const connection = await amqp.connect(process.env.AMPQ_URL as string);
     const channel = await connection.createChannel();
 
     await channel.assertQueue(QUEUE, {
